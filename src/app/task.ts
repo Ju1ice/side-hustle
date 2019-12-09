@@ -2,7 +2,7 @@ import { Data } from './mock-data';
 
 export class Task{
   id: number;
-  user: number;
+  userid: number;
   category: number;
   title: string;
   desc: string;
