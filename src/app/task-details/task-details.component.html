@@ -1,1 +1,12 @@
-<p>task-details works!</p>
+<div *ngIf="taskDetail">
+<p>Title: {{ taskDetail.ttitle }}</p>
+<p>Desc: {{ taskDetail.tdesc }}</p>
+<p>City: {{ taskDetail.tcity }}</p>
+<p>State: {{ taskDetail.tstate }}</p>
+<p>Street: {{ taskDetail.tstreet }}</p>
+<p>Price: {{ taskDetail.tprice }}</p>
+
+<a href="" class="btn btn-primary">Bid</a>
+
+<app-bid-modal></app-bid-modal>
+</div>

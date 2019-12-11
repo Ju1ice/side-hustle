@@ -10,12 +10,9 @@ import { AppService } from '../app.service';
 })
 export class DashboardComponent implements OnInit {
 
-  userTasks: Task[] = null;
   constructor(private services: AppService) { }
 
   ngOnInit() {
-    this.userTasks = this.services.getUserTasks(1);
-    console.log(this.userTasks);
   }
 
 }

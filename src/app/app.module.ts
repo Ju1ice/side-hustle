@@ -10,6 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BidModalComponent } from './bid-modal/bid-modal.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     TaskDetailsComponent,
     LoginComponent,
     NavComponent,
-    DashboardComponent
+    DashboardComponent,
+    BidModalComponent
   ],
   imports: [
     BrowserModule,
