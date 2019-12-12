@@ -147,11 +147,12 @@
       </div>
       <div class="taskcontent">
           <div class="taskdetail">
-            <p> Price: {{ task.tprice}} $ For {{ task.tduration}} Hours</p>
+            <div class="tsdp"> Offered Price: {{ task.tprice}} $ </div>
+            <div class="tsdp2"> For {{ task.tduration}} Hours </div>
           </div>
           <div class="bids">
             <div *ngFor="let bid of task.bids" class="bidsfortask">
-                <p>Bid: {{bid.btitle}} Offer for Job: {{ bid.bprice}} $</p>
+                <p class="bid">Bid: {{bid.btitle}} Offer for Job: {{ bid.bprice}} $</p>
             </div>
           </div>
       </div>

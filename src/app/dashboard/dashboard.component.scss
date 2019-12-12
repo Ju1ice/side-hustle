@@ -1,3 +1,7 @@
+.container{
+  // color:white;
+}
+
 .tasks{
   padding: 5px;
   width: 900px;
@@ -8,27 +12,48 @@
 .task{
   width: 100%;
   height: auto;
-  border-bottom: 1px black solid;
+  // border-bottom: 1px black solid;
 }
 
 .taskdesc{
+  color: white;
   width: 25%;
   height: 200px;
   // border-right: 1px grey solid;
   display: inline-block;
   vertical-align: top;
-  background: linear-gradient(90deg, rgba(178,179,183,0) 91%, rgba(0,1,7,1) 100%);
+  background: #363636;
 }
 
 .taskcontent{
-  width:75%;
+  width:70%;
   height: 200px;
   // border: 1px yellow solid;
+  padding: 5px;
   display: inline-block;
   vertical-align: top;
-
+  background: #474747;
+  margin-left: 5px;
 }
+.tsdp {
+  display: inline-block;
+  padding: 0.5em;
+  background: #A8E6CE;
+}
+.tsdp2 {
+  display: inline-block;
+  padding: 0.5em;
+  background: #CC527A;
+}
+
+
 .bids{
   height: 80%;
   overflow-y: scroll;
+}
+
+.bid{
+  background: #FFD385;
+  margin-top:5px;
+  padding: 0.25em;
 }
