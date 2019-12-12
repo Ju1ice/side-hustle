@@ -1,33 +1,37 @@
 <div class="container">
-<p>Hi, User</p>
+<p>Hi, {{user.ufn}}</p>
 <p>Please Let Other People Know You Need To Get Done!</p>
-<form>
+<form (ngSubmit)="CreateTask()">
   <div class="form-row">
     <div class="form-group col-md-3">
       <label for="tasktitle">Job Title</label>
-      <input type="text" class="form-control" id="tasktitle">
+      <input [(ngModel)]="tempTask.ttitle" name="ttitle" type="text" class="form-control" id="tasktitle">
     </div>
     <div class="form-group col-md-2">
       <label for="taskprice">Job Offer</label>
-      <input type="number" class="form-control" id="taskprice" placeholder="$/Hour">
+      <input [(ngModel)]="tempTask.tprice" name="tprice" type="number" class="form-control" id="taskprice" placeholder="$">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="taskprice">Job Duration(Hours)</label>
+      <input [(ngModel)]="tempTask.tduration" name="tduration" type="number" class="form-control" id="taskduration" placeholder="Hours">
     </div>
   </div>
   <div class="form-group">
     <label for="taskdesc">Job Description</label>
-    <textarea rows="5" type="text" class="form-control" id="taskdesc" placeholder="Please give detail of the job"></textarea>
+    <textarea [(ngModel)]="tempTask.tdesc" name="tdesc" rows="5" type="text" class="form-control" id="taskdesc" placeholder="Please give detail of the job"></textarea>
   </div>
   <div class="form-group">
     <label for="taskstreet">Address</label>
-    <input type="text" class="form-control" id="taskstreet" placeholder="1234 Main St">
+    <input [(ngModel)]="tempTask.tstreet" name="tstreet" type="text" class="form-control" id="taskstreet" placeholder="1234 Main St">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="taskcity">City</label>
-      <input type="text" class="form-control" id="taskcity">
+      <input [(ngModel)]="tempTask.tcity" name="tcity" type="text" class="form-control" id="taskcity">
     </div>
     <div class="form-group col-md-4">
       <label for="taskstate">State</label>
-      <select id="taskstate" class="form-control">
+      <select [(ngModel)]="tempTask.tstate" name="tstate" id="taskstate" class="form-control">
         <option selected>Choose...</option>
         <option value="AL">Alabama</option>
 	      <option value="AK">Alaska</option>
@@ -82,18 +86,15 @@
 	      <option value="WY">Wyoming</option>
       </select>
     </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
+
   </div>
   <button type="submit" class="btn btn-primary">Create</button>
 </form>
 
-<div>
-  <p>All Current Tasks</p>
-</div>
-<div class="alluploadedtasks">
+  <div>
+    <p>All Current Tasks</p>
+  </div>
+  <div class="alluploadedtasks">
 <table class="table">
   <thead>
     <tr>
@@ -104,13 +105,60 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let task of userTasks">
-      <td scope="row">{{ task.title}}</td>
-      <td>${{ task.price}}</td>
-      <td>{{ task.hours}}</td>
+    <tr *ngFor="let task of user.tasks">
+      <td scope="row">{{ task.ttitle}}</td>
+      <td>${{ task.tprice}}</td>
+      <td>{{ task.tduration}}</td>
       <td><button>Details</button> | <button>Proposals</button></td>
     </tr>
   </tbody>
 </table>
-</div>
+  </div>
+  <div>
+    <p>All Submitted Bids</p>
+  </div>
+  <div class="allsubmittedbids">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Bid Title</th>
+      <th>Submitted Bit Price</th>
+      <th>Task Number</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bid of user.bids">
+      <td scope="row">{{ bid.btitle}}</td>
+      <td>${{ bid.bprice}}</td>
+      <td>{{ bid.tid}}</td>
+      <td><button>Details</button></td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  <div class="tasks">
+
+    <div *ngFor="let task of user.tasks" class="task">
+      <div class="taskdesc">
+          {{task.tdesc}}
+      </div>
+      <div class="taskcontent">
+          <div class="taskdetail">
+            <p> Price: {{ task.tprice}} $ For {{ task.tduration}} Hours</p>
+          </div>
+          <div class="bids">
+            <div *ngFor="let bid of task.bids" class="bidsfortask">
+                <p>Bid: {{bid.btitle}} Offer for Job: {{ bid.bprice}} $</p>
+            </div>
+          </div>
+      </div>
+      <div class="actions">
+        <p><button class="btn btn-danger">Remove Job</button></p>
+      </div>
+    </div>
+  </div>
+
 </div>

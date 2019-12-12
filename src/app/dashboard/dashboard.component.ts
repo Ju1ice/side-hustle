@@ -10,12 +10,30 @@ import { AppService } from '../app.service';
 })
 export class DashboardComponent implements OnInit {
 
-  userTasks: Task[] = null;
+  user: User = new  User();
+  userId: number;
+  tempTask: Task = new Task();
   constructor(private services: AppService) { }
 
   ngOnInit() {
-    this.userTasks = this.services.getUserTasks(1);
-    console.log(this.userTasks);
+    this.getUserInfo();
+  }
+
+  getUserInfo() {
+    this.services.getUser(1).subscribe(response => {
+      console.log(response);
+      this.user = response;
+      this.userId = response.uid;
+      console.log('current userId', this.userId);
+    });
+  }
+
+  CreateTask(userId: number, task: Task) {
+    this.services.createATask(this.userId, this.tempTask).subscribe(resp => {
+      console.log(resp);
+      this.getUserInfo();
+      this.tempTask = new Task();
+    });
   }
 
 }

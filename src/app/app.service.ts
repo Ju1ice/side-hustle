@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Data } from './mock-data';
+// import { Data } from './mock-data';
 import { Task } from './task';
 import { User } from './user';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 
@@ -10,16 +12,19 @@ import { User } from './user';
 })
 export class AppService {
 
-  mockdata: Data = new Data ();
-  tempTasks: Task[] = [];
-  constructor() { }
+  // mockdata: Data = new Data ();
+  // tempTasks: Task[] = [];
 
-  getUserTasks(id: number): Task[] {
-    this.mockdata.tasks.forEach(element => {
-      if (element.userid == id) {
-        this.tempTasks.push(element);
-      }
-    });
-    return this.tempTasks;
+  api = 'http://localhost:8080/users/';
+  constructor(private http: HttpClient) { }
+
+  // get user info for Dashboard
+  getUser(id: number): Observable <any> {
+    // call api return
+    return this.http.get(this.api + id);
+  }
+
+  createATask(userid: number, task: Task): Observable <any>{
+    return this.http.post(this.api + userid + '/task', task);
   }
 }

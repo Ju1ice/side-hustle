@@ -1,15 +1,18 @@
-import { Data } from './mock-data';
+import { Bid } from './bid';
 
-export class Task{
-  id: number;
-  userid: number;
-  category: number;
-  title: string;
-  desc: string;
-  street: string;
-  city: string;
-  state: string;
-  price: number;
-  hours: number;
+
+export class Task {
+  tid: number;
+  tuserid: number;
+  ttitle: string;
+  tdesc: string;
+  tstreet: string;
+  tcity: string;
+  tstate: string;
+  tprice: number;
+  tduration: number;
+  bids: Bid[];
+  uid: number;
+  constructor() {}
 }
 
