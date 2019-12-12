@@ -17,7 +17,17 @@ export class DashboardComponent implements OnInit {
   constructor(private services: AppService) { }
 
   ngOnInit() {
-    this.getUserInfo();
+    // this.getUserInfo();
+    this.getUserInfoBySession();
+  }
+
+  getUserInfoBySession() {
+    this.services.getUserBySession().subscribe(resp => {
+      console.log(resp);
+      this.user = resp;
+      this.userId = resp.uid;
+      console.log('current userId', this.userId);
+    });
   }
 
   getUserInfo() {

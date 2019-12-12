@@ -24,7 +24,15 @@ export class AppService {
     return this.http.get(this.api + id);
   }
 
-  createATask(userid: number, task: Task): Observable <any>{
+  getUserBySession(): Observable <any> {
+    return this.http.get(this.api + 'detail');
+  }
+
+  createATask(userid: number, task: Task): Observable <any> {
     return this.http.post(this.api + userid + '/task', task);
+  }
+
+  login(tempUser: User): Observable <any> {
+    return this.http.post(this.api, tempUser);
   }
 }
