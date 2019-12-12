@@ -1,12 +1,15 @@
-<div *ngIf="taskDetail">
-<p>Title: {{ taskDetail.ttitle }}</p>
-<p>Desc: {{ taskDetail.tdesc }}</p>
-<p>City: {{ taskDetail.tcity }}</p>
-<p>State: {{ taskDetail.tstate }}</p>
-<p>Street: {{ taskDetail.tstreet }}</p>
-<p>Price: {{ taskDetail.tprice }}</p>
+<div class="container"  *ngIf="taskDetail && imageUrl">
+<div class="card mb-3">
+  <img src='{{ imageUrl }}' class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{taskDetail.ttitle}}</h5>
+<p class="card-text">City: {{ taskDetail.tcity }}</p>
+<p class="card-text">State: {{ taskDetail.tstate }}</p>
+<p class="card-text">Street: {{ taskDetail.tstreet }}</p>
+<p class="card-text">Price: {{ taskDetail.tprice }}</p>
+  </div>
+</div>
 
-<a href="" class="btn btn-primary">Bid</a>
 
 <app-bid-modal></app-bid-modal>
 </div>

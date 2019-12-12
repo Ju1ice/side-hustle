@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+$primary:#A8A7A7;
+$light: #f7f7f7;
+$dark: #474747;
+$textcolor:#363636;
+$accentcolor: #E8175D;
+$accentcolor2: #CC527A;
+
+body{
+  background-color: $light;
+}
+.card{
+  background-color: $dark;
+  color: white;
+    -moz-box-shadow:    9px 8px 9px 2px #ccc;
+  -webkit-box-shadow: 9px 8px 9px 2px #ccc;
+    box-shadow: 9px 8px 9px 2px #ccc;
+
+}
+.card-title{
+  background-color:rgba(247, 247, 247, 0.8);
+  color: $accentcolor;
+    padding: 10px;
+    border-radius: 10px;
+}
+.card a{
+  background-color: $accentcolor2;
+  color: white;
+    border: none;
+}

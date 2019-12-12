@@ -21,6 +21,11 @@ url = `http://localhost:8080`;
     return this.http.get(this.url + '/tasks/task/' + tid);
   }
 
+  showImage(cityName: string): Observable <any> {
+    cityName = cityName.toLowerCase();
+    return this.http.get('https://api.teleport.org/api/urban_areas/slug:' + cityName + '/images/');
+  }
+
 
 
 }

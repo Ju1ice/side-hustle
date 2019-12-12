@@ -1,13 +1,15 @@
 <div class="container" >
 
   <div class="card-deck">
-<div class="card text-center" style="width: 18rem;" *ngFor="let task of listOfTasks">
+    <div class="col-xs-6 col-sm-4" *ngFor="let task of listOfTasks">
+<div class="card text-center" >
   <div class="card-body">
     <h5 class="card-title">{{ task.ttitle}}</h5>
     <p class="card-text"> {{ task.tdesc }} </p>
     <p class="location">{{ task.tcity }}, {{ task.tstate }} </p><p class="budget"> {{ task.tprice }} </p>
     <a  href="#" class="btn btn-primary" [routerLink]="['/task-details']"  [queryParams]="{ taskId: task.tid }">Go somewhere</a>
   </div>
+</div>
 </div>
 </div>
 </div>
