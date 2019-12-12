@@ -10,6 +10,7 @@ import { AppService } from '../app.service';
 })
 export class DashboardComponent implements OnInit {
 
+
   user: User = new  User();
   userId: number;
   tempTask: Task = new Task();
@@ -34,6 +35,7 @@ export class DashboardComponent implements OnInit {
       this.getUserInfo();
       this.tempTask = new Task();
     });
+
   }
 
 }

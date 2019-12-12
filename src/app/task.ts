@@ -1,5 +1,5 @@
-import { Bid } from './bid';
 
+import { Bid } from './bid';
 
 export class Task {
   tid: number;
@@ -15,4 +15,3 @@ export class Task {
   uid: number;
   constructor() {}
 }
-
