@@ -5,8 +5,8 @@
 <div class="card text-center" >
   <div class="card-body">
     <h5 class="card-title">{{ task.ttitle}}</h5>
-    <p class="card-text"> {{ task.tdesc }} </p>
-    <p class="location">{{ task.tcity }}, {{ task.tstate }} </p><p class="budget"> {{ task.tprice }} </p>
+    <p class="location">{{ task.tcity }}, {{ task.tstate }} </p>
+    <p class="budget"><i class="fa fa-usd" style="font-size:48px;color:red"></i> {{ task.tprice }} </p>
     <a  href="#" class="btn btn-primary" [routerLink]="['/task-details']"  [queryParams]="{ taskId: task.tid }">Go somewhere</a>
   </div>
 </div>

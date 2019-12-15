@@ -9,6 +9,8 @@ $accentcolor2: #CC527A;
 
 body{
   background-color: $light;
+  background: url(assets/images/back2.jpg);
+  background-size: cover;
 }
 .card{
   background-color: $dark;
