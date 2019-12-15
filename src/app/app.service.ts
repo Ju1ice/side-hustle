@@ -15,24 +15,25 @@ export class AppService {
   // mockdata: Data = new Data ();
   // tempTasks: Task[] = [];
 
-  api = 'http://localhost:8080/users/';
+  api = 'http://localhost:8080/users';
   constructor(private http: HttpClient) { }
-
-  // get user info for Dashboard
-  getUser(id: number): Observable <any> {
-    // call api return
-    return this.http.get(this.api + id);
-  }
-
-  getUserBySession(): Observable <any> {
-    return this.http.get(this.api + 'detail');
-  }
-
-  createATask(userid: number, task: Task): Observable <any> {
-    return this.http.post(this.api + userid + '/task', task);
-  }
 
   login(tempUser: User): Observable <any> {
     return this.http.post(this.api, tempUser);
   }
+
+  // get user info for Dashboard
+  getUser(id: string): Observable <any> {
+    // call api return
+    return this.http.get(this.api + '/' + id );
+  }
+
+  // getUserBySession(): Observable <any> {
+  //   return this.http.get(this.api + '/detail');
+  // }
+
+  createATask(userid: string, task: Task): Observable <any> {
+    return this.http.post(this.api + '/' + userid + '/task', task);
+  }
+
 }

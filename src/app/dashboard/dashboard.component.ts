@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../task';
 import { User } from '../user';
 import { AppService } from '../app.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,26 +13,28 @@ export class DashboardComponent implements OnInit {
 
 
   user: User = new  User();
-  userId: number;
+  userId: string;
   tempTask: Task = new Task();
-  constructor(private services: AppService) { }
+  constructor(private services: AppService, private cookieService: CookieService) { }
 
   ngOnInit() {
-    // this.getUserInfo();
-    this.getUserInfoBySession();
+    this.getUserInfo();
+    // this.getUserInfoBySession();
   }
 
-  getUserInfoBySession() {
-    this.services.getUserBySession().subscribe(resp => {
-      console.log(resp);
-      this.user = resp;
-      this.userId = resp.uid;
-      console.log('current userId', this.userId);
-    });
-  }
+  // getUserInfoBySession() {
+  //   this.services.getUserBySession().subscribe(resp => {
+  //     console.log(resp);
+  //     this.user = resp;
+  //     // this.userId = resp.uid;
+  //     console.log('current userId', this.userId);
+  //   });
+  // }
 
   getUserInfo() {
-    this.services.getUser(1).subscribe(response => {
+    this.userId = this.cookieService.get('useridfromlogin');
+    console.log('id in cookie' + this.userId);
+    this.services.getUser(this.userId).subscribe(response => {
       console.log(response);
       this.user = response;
       this.userId = response.uid;
