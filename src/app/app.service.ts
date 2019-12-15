@@ -16,6 +16,7 @@ export class AppService {
   // tempTasks: Task[] = [];
 
   api = 'http://localhost:8080/users';
+  taskapi = 'http://localhost:8080/tasks/task/';
   constructor(private http: HttpClient) { }
 
   login(tempUser: User): Observable <any> {
@@ -34,6 +35,10 @@ export class AppService {
 
   createATask(userid: string, task: Task): Observable <any> {
     return this.http.post(this.api + '/' + userid + '/task', task);
+  }
+
+  removeTask(taskid: number): Observable <any> {
+    return this.http.delete(this.taskapi + taskid);
   }
 
 }

@@ -1,3 +1,5 @@
+import { Task } from './task';
+
 export class Bid {
   id: number;
   bdesc: string;

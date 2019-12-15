@@ -51,4 +51,11 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  RemoveTask(taskid: number) {
+    this.services.removeTask(taskid).subscribe(resp => {
+      console.log('sucessfully deleted in back-end');
+      this.getUserInfo();
+    });
+  }
+
 }

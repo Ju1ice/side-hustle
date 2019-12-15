@@ -16,5 +16,5 @@ export class BidService {
   add(bid: Bid): Observable<any> {
     return this.http.post(this.url + '/bids/add', bid);
   }
-  }
+}
 
