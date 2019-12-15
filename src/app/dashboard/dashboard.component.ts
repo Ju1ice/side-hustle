@@ -37,6 +37,7 @@ export class DashboardComponent implements OnInit {
     this.services.getUser(this.userId).subscribe(response => {
       console.log(response);
       this.user = response;
+
       this.userId = response.uid;
       console.log('current userId', this.userId);
     });

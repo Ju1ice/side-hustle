@@ -10,11 +10,13 @@ import { CookieService } from 'ngx-cookie-service';
 export class BidService {
 
 
+
   constructor(private http: HttpClient) {}
   url = `http://localhost:8080`;
 
-  add(bid: Bid): Observable<any> {
-    return this.http.post(this.url + '/bids/add', bid);
+  add(bid: Bid, uid: number, tid: number): Observable<any> {
+    return this.http.post(this.url + '/bids/add/' + uid + '/' + tid, bid
+      );
   }
 }
 

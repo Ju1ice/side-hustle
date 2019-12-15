@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from '../task.service';
 import { Task } from '../task';
+import { BidModalComponent } from '../bid-modal/bid-modal.component';
 
 @Component({
   selector: 'app-task-details',
