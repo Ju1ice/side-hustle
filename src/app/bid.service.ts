@@ -18,5 +18,9 @@ export class BidService {
     return this.http.post(this.url + '/bids/add/' + uid + '/' + tid, bid
       );
   }
+
+    removeBid(id: number): Observable <any> {
+    return this.http.delete(this.url + '/bids/remove/' + id);
+  }
 }
 

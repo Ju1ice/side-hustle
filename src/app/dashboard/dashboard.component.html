@@ -133,6 +133,7 @@
       <td>${{ bid.bprice}}</td>
       <td>{{ bid.tid}}</td>
       <td><button>Details</button></td>
+      <td><button (click)="RemoveBid(bid.id)" class="btn btn-danger">Remove Bid</button></td>
     </tr>
   </tbody>
 </table>

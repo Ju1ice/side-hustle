@@ -3,6 +3,7 @@ import { Task } from '../task';
 import { User } from '../user';
 import { AppService } from '../app.service';
 import { CookieService } from 'ngx-cookie-service';
+import { BidService } from '../bid.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,7 @@ export class DashboardComponent implements OnInit {
   user: User = new  User();
   userId: string;
   tempTask: Task = new Task();
-  constructor(private services: AppService, private cookieService: CookieService) { }
+  constructor(private services: AppService, private cookieService: CookieService, private bidservice: BidService) { }
 
   ngOnInit() {
     this.getUserInfo();
@@ -55,6 +56,13 @@ export class DashboardComponent implements OnInit {
   RemoveTask(taskid: number) {
     this.services.removeTask(taskid).subscribe(resp => {
       console.log('sucessfully deleted in back-end');
+      this.getUserInfo();
+    });
+  }
+
+    RemoveBid(bidid: number) {
+    this.bidservice.removeBid(bidid).subscribe(resp => {
+      console.log('bid is sucessfully deleted in back-end');
       this.getUserInfo();
     });
   }
