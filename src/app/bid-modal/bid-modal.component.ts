@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { BidService } from '../bid.service';
 import { Bid } from 'src/Bid';
 import { catchError } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute, Router } from '@angular/router';
-
 
 
 @Component({
@@ -13,7 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./bid-modal.component.scss']
 })
 export class BidModalComponent implements OnInit {
-
   constructor( private service: BidService, private cookieService: CookieService, private route: ActivatedRoute, private router: Router) { }
 
   temp: Bid = new Bid();
@@ -42,6 +40,7 @@ export class BidModalComponent implements OnInit {
   response => { console.log(response);
                 // create a new object to clear form only when there is a successfull response
                 this.temp = new Bid();
+                document.getElementById('close-btn').click();
                 this.router.navigate(['/dashboard']);
  }
 );

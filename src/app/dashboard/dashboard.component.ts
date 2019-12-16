@@ -6,6 +6,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { BidService } from '../bid.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavComponent } from '../nav/nav.component';
+import { DashboardTasksComponent } from '../dashboard-tasks/dashboard-tasks.component';
+
 
 @Component({
   selector: 'app-dashboard',
