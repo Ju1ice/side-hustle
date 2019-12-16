@@ -11,7 +11,7 @@
     <input [(ngModel)]="tempUser.upassword" name="password" type="password" placeholder="Password" class="form-control" id="password">
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
+  <div class="text-light" *ngIf="foundUser == null">Username or Password is incorrect!</div>
 </form>
-<div *ngIf="foundUser == null">Username or Password is incorrect!</div>
 </div>
 </div>

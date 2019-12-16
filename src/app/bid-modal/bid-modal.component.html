@@ -1,36 +1,111 @@
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<button
+  type="button"
+  class="btn btn-primary"
+  data-toggle="modal"
+  data-target="#exampleModalCenter"
+>
   Place Your Bid
-</button><div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+</button>
+<div *ngIf="isLogin; else notLogin">
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">Add Your Bid</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-
-      <form (ngSubmit)="addBid()">
+        <form (ngSubmit)="addBid()">
           <div class="form-group">
-    <label for="bidTitle">Bid Title</label>
-    <input type="text" class="form-control" id="bidTitle" name="bidTitle" placeholder="Make your bid stand out" [(ngModel)]="temp.btitle">
-  </div>
-  <div class="form-group">
-    <label for="bidDesc">Bid Description</label>
-    <input type="text" class="form-control" id="bidDesc" name="bidDesc" placeholder="Why you are the best fit for this task" [(ngModel)]="temp.bdesc">
-  </div>
-  <div class="form-group">
-    <label for="bidBudget">Budget</label>
-    <input type="text" class="form-control" id="bidBudget" name="bidBudget" placeholder="How much will you charge for this task" [(ngModel)]="temp.bprice">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit Bid</button>
-</form>
- </div>
+            <label for="bidTitle">Bid Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bidTitle"
+              name="bidTitle"
+              placeholder="Make your bid stand out"
+              [(ngModel)]="temp.btitle"
+            />
+          </div>
+          <div class="form-group">
+            <label for="bidDesc">Bid Description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bidDesc"
+              name="bidDesc"
+              placeholder="Why you are the best fit for this task"
+              [(ngModel)]="temp.bdesc"
+            />
+          </div>
+          <div class="form-group">
+            <label for="bidBudget">Budget</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bidBudget"
+              name="bidBudget"
+              placeholder="How much will you charge for this task"
+              [(ngModel)]="temp.bprice"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Bid</button>
+        </form>
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
 </div>
+</div>
+<ng-template #notLogin>
+  <div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Add Your Bid</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3 style="color: black;">Please Login to Submit Bids to Tasks!</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-template>

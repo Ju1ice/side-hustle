@@ -18,9 +18,11 @@ export class BidModalComponent implements OnInit {
 
   temp: Bid = new Bid();
   error: string;
+  isLogin: boolean;
 
   ngOnInit() {
     console.log('Hello from Modal');
+    this.isLogin = this.cookieService.check('useridfromlogin');
   }
 
     // call service addBid()

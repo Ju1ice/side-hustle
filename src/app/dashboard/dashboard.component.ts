@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Task } from '../task';
 import { User } from '../user';
 import { AppService } from '../app.service';
 import { CookieService } from 'ngx-cookie-service';
 import { BidService } from '../bid.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,11 +14,13 @@ import { BidService } from '../bid.service';
 })
 export class DashboardComponent implements OnInit {
 
+  @Input() nav: NavComponent;
 
   user: User = new  User();
   userId: string;
   tempTask: Task = new Task();
-  constructor(private services: AppService, private cookieService: CookieService, private bidservice: BidService) { }
+  islogin: boolean;
+  constructor(private services: AppService, private cookieService: CookieService, private bidservice: BidService, private router: Router) { }
 
   ngOnInit() {
     this.getUserInfo();
@@ -33,15 +37,22 @@ export class DashboardComponent implements OnInit {
   // }
 
   getUserInfo() {
-    this.userId = this.cookieService.get('useridfromlogin');
-    console.log('id in cookie' + this.userId);
-    this.services.getUser(this.userId).subscribe(response => {
+    this.islogin = this.cookieService.check('useridfromlogin');
+
+    console.log('is the user login', this.islogin);
+    if (this.islogin) {
+      this.userId = this.cookieService.get('useridfromlogin');
+      console.log('id in cookie' + this.userId);
+      this.services.getUser(this.userId).subscribe(response => {
       console.log(response);
       this.user = response;
 
       this.userId = response.uid;
       console.log('current userId', this.userId);
-    });
+
+    }); } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   CreateTask(userId: number, task: Task) {

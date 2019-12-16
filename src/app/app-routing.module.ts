@@ -4,6 +4,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { NavComponent } from './nav/nav.component';
 
 
 const routes: Routes = [{
@@ -17,6 +18,9 @@ path: 'task-list', component: TaskListComponent
 },
 {
 path: 'task-details', component: TaskDetailsComponent
+},
+{
+  path: 'nav', component: NavComponent
 },
 {
   path: '', redirectTo: 'task-list',  pathMatch: 'full'
