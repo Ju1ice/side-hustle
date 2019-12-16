@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BidModalComponent } from './bid-modal/bid-modal.component';
 import { CookieService } from 'ngx-cookie-service';
+import { DashboardTasksComponent } from './dashboard-tasks/dashboard-tasks.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CookieService } from 'ngx-cookie-service';
     LoginComponent,
     NavComponent,
     DashboardComponent,
-    BidModalComponent
+    BidModalComponent,
+    DashboardTasksComponent
   ],
   imports: [
     BrowserModule,

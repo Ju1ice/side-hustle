@@ -4,6 +4,8 @@ import { User } from '../user';
 import { AppService } from '../app.service';
 import { CookieService } from 'ngx-cookie-service';
 import { BidService } from '../bid.service';
+import { DashboardTasksComponent } from '../dashboard-tasks/dashboard-tasks.component';
+
 
 @Component({
   selector: 'app-dashboard',

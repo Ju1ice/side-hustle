@@ -1,0 +1,25 @@
+ <div class="tasks">
+
+    <div *ngFor="let task of user.tasks" class="task">
+      <h5 class="tasktitle">{{task.ttitle}}</h5>
+      <div class="taskdesc">
+          {{task.tdesc}}
+      </div>
+      <div class="taskcontent">
+          <div class="taskdetail">
+            <div class="tsdp"> Offered Price: {{ task.tprice}} $ </div>
+            <div class="tsdp2"> For {{ task.tduration}} Hours </div>
+          </div>
+          <div class="bids">
+            <div *ngFor="let bid of task.bids" class="bidsfortask">
+                <p class="bid">Bid: {{bid.btitle}} Offer for Job: {{ bid.bprice}} $</p>
+            </div>
+          </div>
+      </div>
+      <div class="actions">
+        <span><button (click)="RemoveTask(task.tid)" class="btn btn-danger">Remove Job</button></span>
+        <span><button  class="btn btn-primary">Edit Job</button></span>
+
+      </div>
+    </div>
+  </div>
