@@ -20,8 +20,12 @@ export class DashboardComponent implements OnInit {
 
   user: User = new  User();
   userId: string;
+  taskid: number;
   tempTask: Task = new Task();
+  task: Task = new Task();
   islogin: boolean;
+  formShow = false;
+  buttonName = 'Update Task';
   constructor(private services: AppService, private cookieService: CookieService, private bidservice: BidService, private router: Router) { }
 
   ngOnInit() {
@@ -66,13 +70,6 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  RemoveTask(taskid: number) {
-    this.services.removeTask(taskid).subscribe(resp => {
-      console.log('sucessfully deleted in back-end');
-      this.getUserInfo();
-    });
-  }
-
     RemoveBid(bidid: number) {
     this.bidservice.removeBid(bidid).subscribe(resp => {
       console.log('bid is sucessfully deleted in back-end');
@@ -80,4 +77,22 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  RemoveTask(taskid: number) {
+    this.services.removeTask(taskid).subscribe(resp => {
+      console.log('sucessfully deleted in back-end');
+      this.getUserInfo();
+    });
+  }
+updateTask(taskid: number,  task: Task) {
+  console.log("This is task updating...." + this.task.ttitle);
+   /* this.services.updateTask(taskid, this.task).subscribe(resp => {
+      console.log(resp);
+      this.getUserInfo();
+      this.task = new Task();
+    });
+    */
+}
+toggle(taskid) {
+
+}
 }

@@ -5,7 +5,7 @@ $light: #f7f7f7;
 $dark: #1a2930;
 $textcolor:#363636;
 $accentcolor: #f7ce3e;
-$accentcolor2: #f7ce3e;
+$accentcolor2: #ff7272;
 
 body{
   background-color: $light;
@@ -38,7 +38,7 @@ background-color: rgba(247, 247, 247);
   font-weight: 700;
 }
 .tasks-card a, .btn{
-  background-color: $accentcolor2;
+  background-color: $accentcolor;
   color: white;
     border: none;
     width:120px;
@@ -101,3 +101,8 @@ width:120px;
 .login-form .form-group{
   width: 100%;
 }
+
+.btn-remove{
+background-color: $accentcolor2!important;
+}
+

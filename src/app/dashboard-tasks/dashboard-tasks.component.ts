@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user';
+import { AppService } from '../app.service';
+
 
 
 @Component({
@@ -9,9 +11,10 @@ import { User } from '../user';
 })
 export class DashboardTasksComponent implements OnInit {
 @Input() user: User;
-  constructor() { }
+  constructor(private services: AppService) { }
 
   ngOnInit() {
   }
+
 
 }
