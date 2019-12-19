@@ -1,0 +1,16 @@
+<app-nav></app-nav>
+<div class="container" >
+
+  <div class="card-deck">
+    <div class="col-xs-6 col-sm-4" *ngFor="let task of listOfTasks">
+<div class="card text-center tasks-card" >
+  <div class="card-body">
+    <h5 class="card-title">{{ task.ttitle}}</h5>
+    <p class="location">{{ task.tcity }}, {{ task.tstate }} </p>
+    <p class="budget">${{ task.tprice }} </p>
+    <a  href="#" class="btn btn-primary" [routerLink]="['/task-details']"  [queryParams]="{ taskId: task.tid }">VIEW</a>
+  </div>
+</div>
+</div>
+</div>
+</div>

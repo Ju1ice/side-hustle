@@ -1,1 +1,108 @@
 /* You can add global styles to this file, and also import other style files */
+
+$primary:#A8A7A7;
+$light: #f7f7f7;
+$dark: #1a2930;
+$textcolor:#363636;
+$accentcolor: #f7ce3e;
+$accentcolor2: #ff7272;
+
+body{
+  background-color: $light;
+  background: url(assets/images/back2.jpg);
+  background-size: cover;
+  font-family: Lato;
+}
+.tasks-card{
+  background-color: $dark;
+  color: white;
+    -moz-box-shadow:    9px 8px 9px 2px #ccc;
+  -webkit-box-shadow: 9px 8px 9px 2px #ccc;
+    box-shadow: 9px 8px 9px 2px #ccc;
+    margin: 30px 0px 20px;
+
+}
+.tasks-card .card-title{
+background-color: rgba(247, 247, 247);
+    color: #1a2930;
+    padding: 20px 10px;
+    border-radius: 10px;
+    margin-top: -35px;
+    border: solid 4px #f7ce3e;
+}
+.details-cards .card-title{
+  text-transform: uppercase;
+}
+.details-cards .card-body span{
+  font-style: italic;
+  font-weight: 700;
+}
+.tasks-card a, .btn{
+  background-color: $accentcolor;
+  color: white;
+    border: none;
+    width:120px;
+      transition: 0.3s;
+}
+.tasks-card a:hover, .btn:hover{
+  background-color: $light;
+  color: $dark;
+}
+
+.tasks-card p.location:before{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 6px 0 0;
+    background: url(assets/images/location.png) no-repeat;
+    background-size: contain;
+}
+.tasks-card p.budget:before{
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    margin: 0 6px 0 0;
+    background: url(assets/images/money.png) no-repeat;
+    background-size: contain;
+    }
+    .login-container{
+    height: 75vh;
+        display: flex;
+  align-items: center;
+    }
+    .login-form{
+        background-color: $dark;
+        max-width: 450px;
+        max-height: 400px;
+        margin: auto;
+        border: 1px solid;
+    border-radius: 23px;
+        -moz-box-shadow:    9px 8px 9px 2px #ccc;
+  -webkit-box-shadow: 9px 8px 9px 2px #ccc;
+    box-shadow: 9px 8px 9px 2px #ccc;
+}
+.login-form label{
+  display: none;
+}
+.login-form button{
+  display: block;
+  margin: auto;
+  background-color: $accentcolor;
+  color: $dark;
+  border: none;
+width:120px;
+}
+.login-form h3{
+  margin-bottom: 20px;
+}
+
+.login-form .form-group{
+  width: 100%;
+}
+
+.btn-remove{
+background-color: $accentcolor2!important;
+}
+
