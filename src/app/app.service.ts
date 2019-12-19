@@ -4,6 +4,7 @@ import { Task } from './task';
 import { User } from './user';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Bid } from 'src/bid';
 
 
 
@@ -17,6 +18,7 @@ export class AppService {
 
   api = 'http://localhost:8080/users';
   taskapi = 'http://localhost:8080/tasks/task/';
+  bidapi = 'http://localhost:8080/bids/approve/';
   constructor(private http: HttpClient) { }
 
   login(tempUser: User): Observable <any> {
@@ -39,6 +41,10 @@ export class AppService {
 
   updateTask( task: Task): Observable <any> {
     return this.http.post(this.taskapi + 'update/' + task.tid, task);
+  }
+
+  approveBid(bid: Bid): Observable <any> {
+    return this.http.post(this.bidapi + bid.id, bid);
   }
 
   removeTask(taskid: number): Observable <any> {

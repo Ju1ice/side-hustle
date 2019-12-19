@@ -136,50 +136,27 @@
     <button type="submit" class="btn btn-primary">Create</button>
   </form>
 
+
   <div>
-    <p>All Current Tasks</p>
-  </div>
-  <div class="alluploadedtasks">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Job Price</th>
-          <th>Duration(Hours)</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let task of user.tasks">
-          <td scope="row">{{ task.ttitle }}</td>
-          <td>${{ task.tprice }}</td>
-          <td>{{ task.tduration }}</td>
-          <td><button>Details</button> | <button>Proposals</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div>
-    <p>All Submitted Bids</p>
+    <h2 class="text-center">Your Submitted Bids</h2>
   </div>
   <div class="allsubmittedbids">
-    <table class="table">
+    <table class="table text-center" >
       <thead>
         <tr>
           <th>Bid Title</th>
           <th>Submitted Bit Price</th>
-          <th>Task Number</th>
-          <th></th>
+          <th>Bid Description</th>
+          <th>Remove</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let bid of user.bids">
-          <td scope="row">{{ bid.btitle }}</td>
+        <tr *ngFor="let bid of user.bids" [ngStyle]="{'background-color':bid.bapproved ? '#a7e074' : 'none' }">
+          <td scope="row" >{{ bid.btitle }}</td>
           <td>${{ bid.bprice }}</td>
-          <td>{{ bid.tid }}</td>
-          <td><button>Details</button></td>
+          <td>{{ bid.bdesc }}</td>
           <td>
-            <button (click)="RemoveBid(bid.id)" class="btn btn-danger">
+            <button (click)="RemoveBid(bid.id)" class="btn btn-remove">
               Remove Bid
             </button>
           </td>
@@ -356,10 +333,14 @@
 
           <div class="col-sm-6 text-center">
           <div class="bids">
-            <h4>Bids</h4>
-            <div *ngFor="let bid of task.bids" class="bidsfortask">
-                <p class="bid">Bid: {{bid.btitle}} Offer for Job: {{ bid.bprice}} $</p>
-            </div>
+            <h4>Bids Recieved</h4>
+              <table class="table table-striped" style="width: 100%;" cellpadding="10">
+                <tr style="border-spacing: 10px"  *ngFor="let bid of task.bids" class="bidsfortask">
+                  <td>Bid Title: {{bid.btitle}}<br> Bid Description: {{bid.bdesc}} <br> Offer: ${{ bid.bprice}}  </td>
+                  <td><input type="checkbox" class="form-check-input" value="bid.bapproved" [(ngModel)]="bid.bapproved"  (change)="approveBid(bid)"/>Accept</td>
+                </tr>
+
+              </table>
           </div>
       </div>
        </div>

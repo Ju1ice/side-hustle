@@ -8,5 +8,6 @@ export class Bid {
   btitle: string;
   tid: number;
   uid: number;
+  bapproved: boolean;
   constructor() {}
 }

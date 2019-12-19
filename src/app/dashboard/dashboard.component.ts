@@ -7,6 +7,7 @@ import { BidService } from '../bid.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavComponent } from '../nav/nav.component';
 import { DashboardTasksComponent } from '../dashboard-tasks/dashboard-tasks.component';
+import { Bid } from 'src/bid';
 
 
 @Component({
@@ -90,6 +91,15 @@ updateTask(task: Task) {
       console.log(resp);
       this.getUserInfo();
       task = new Task();
+    });
+}
+
+approveBid(bid: Bid){
+  console.log('Bid Approved:' + bid.bapproved);
+  this.services.approveBid(bid).subscribe(resp => {
+      console.log(resp);
+      this.getUserInfo();
+      bid = new Bid();
     });
 }
 }
