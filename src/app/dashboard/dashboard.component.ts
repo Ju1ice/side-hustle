@@ -17,15 +17,14 @@ import { catchError } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
 
-  @Input() nav: NavComponent;
-
   user: User = new  User();
   userId: string;
   taskid: number;
   tempTask: Task = new Task();
   task: Task = new Task();
   islogin: boolean;
-  error;
+  createFormError;
+  updateFormError;
   formShow = false;
   buttonName = 'Update Task';
   constructor(private services: AppService, private cookieService: CookieService, private bidservice: BidService, private router: Router) { }
@@ -54,7 +53,7 @@ export class DashboardComponent implements OnInit {
       this.services.getUser(this.userId).subscribe(response => {
       console.log(response);
       this.user = response;
-
+      this.user.tasks.sort((a, b) => (a.tid > b.tid) ? 1 : ((b.tid) > a.tid) ? -1 : 0);
       this.userId = response.uid;
       console.log('current userId', this.userId);
 
@@ -67,19 +66,20 @@ export class DashboardComponent implements OnInit {
     this.services.createATask(this.userId, this.tempTask).pipe(
       catchError((err, caught) => {
         console.log('err', err);
-        this.error = err.error.errors;
-        console.log('this.error', this.error);
+        this.createFormError = err.error.errors;
+        console.log('this.error', this.createFormError);
         // console.log(caught);
         return [];
       })).subscribe(resp => {
       console.log(resp);
       this.getUserInfo();
       this.tempTask = new Task();
+      this.createFormError = null;
     });
 
   }
 
-    RemoveBid(bidid: number) {
+  RemoveBid(bidid: number) {
     this.bidservice.removeBid(bidid).subscribe(resp => {
       console.log('bid is sucessfully deleted in back-end');
       this.getUserInfo();
@@ -92,13 +92,21 @@ export class DashboardComponent implements OnInit {
       this.getUserInfo();
     });
   }
-updateTask(task: Task) {
+  updateTask(task: Task) {
   console.log('This is task updating22222....' + JSON.stringify(task));
   // console.log('This is task updating....' + JSON.stringify(this.user.tasks[1]));
-  this.services.updateTask(task).subscribe(resp => {
+  this.services.updateTask(task).pipe(
+    catchError((err, caught) => {
+      console.log('err', err);
+      this.updateFormError = err.error.errors;
+      console.log('this.error', this.updateFormError);
+      // console.log(caught);
+      return [];
+    })).subscribe(resp => {
       console.log(resp);
       this.getUserInfo();
       task = new Task();
+      this.updateFormError = null;
     });
 }
 }
