@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class TaskService {
 
   constructor(private http: HttpClient) { }
-  url = `http://localhost:8080`;
+  url = `http://ec2-3-132-52-40.us-east-2.compute.amazonaws.com:8080/`;
   listOfTasks: Task[] = [];
 
   list(): Observable <any> {

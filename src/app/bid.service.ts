@@ -12,7 +12,7 @@ export class BidService {
 
 
   constructor(private http: HttpClient) {}
-  url = `http://localhost:8080`;
+  url = `http://ec2-3-132-52-40.us-east-2.compute.amazonaws.com:8080/`;
 
   add(bid: Bid, uid: number, tid: number): Observable<any> {
     return this.http.post(this.url + '/bids/add/' + uid + '/' + tid, bid

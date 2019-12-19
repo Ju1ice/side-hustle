@@ -1,7 +1,12 @@
 .task {
-    background: lightgray;
+    background: #1a2930;
+    width: 80%;
+    margin: auto;
+    color: white;
     padding: 30px;
-    margin-bottom: 20px;
+    box-shadow: 9px 8px 9px 2px #ccc;
+    margin-bottom: 100px;
+    margin: 20px auto;
 }
 
 .taskdesc p, .taskdesc h6, .taskdetail p, .taskdetail h6{
@@ -20,3 +25,43 @@ h5.tasktitle {
 .updateForm{
   //display: none;
 }
+
+.addtaskform{
+      background: #1a2930;
+    width: 80%;
+    margin: auto;
+    color: white;
+    padding: 30px;
+    -moz-box-shadow: 9px 8px 9px 2px #ccc;
+    -webkit-box-shadow: 9px 8px 9px 2px #ccc;
+    box-shadow: 9px 8px 9px 2px #ccc;
+    margin-bottom: 100px;
+}
+
+.addtaskform button{
+  margin:auto;
+  display: block;
+}
+
+.task .table  td, .task .table  tr{
+  color: white;
+  text-align: left;
+}
+.allsubmittedbids{
+  width: 80%;
+  background: #ffde72;
+    margin: auto;
+    color: #363636;
+    padding: 30px;
+    box-shadow: 9px 8px 9px 2px #ccc;
+    margin-bottom: 100px;
+}
+.allsubmittedbids .table thead th {
+  border-top: none;
+      border-bottom-color: white;
+}
+.allsubmittedbids .table td{
+      border-top: 1px solid white;
+}
+
+

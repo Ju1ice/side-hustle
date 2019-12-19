@@ -6,11 +6,13 @@
   </div>
   <div class="card-body">
     <h5 class="card-title text-center">{{taskDetail.ttitle}}</h5>
-<p class="card-text"><span>Description:</span> {{ taskDetail.tdesc }}</p>
-<p class="card-text"><span>City:</span> {{ taskDetail.tcity }}</p>
-<p class="card-text"><span>State:</span> {{ taskDetail.tstate }}</p>
-<p class="card-text"><span>Street:</span> {{ taskDetail.tstreet }}</p>
-<p class="card-text"><span>Price:</span> ${{ taskDetail.tprice }}</p>
+        <div class="task-info">
+<p class="card-text"><span>Description:&emsp;</span> {{ taskDetail.tdesc }}</p>
+<p class="card-text"><span>State:&emsp;</span> {{ taskDetail.tstate }}</p>
+<p class="card-text"><span>City:&emsp;</span> {{ taskDetail.tcity }}</p>
+<p class="card-text"><span>Street:&emsp;</span> {{ taskDetail.tstreet }}</p>
+<p class="card-text"><span>Offer:&emsp;</span>${{ taskDetail.tprice * taskDetail.tduration}}  for {{taskDetail.tduration}} hours </p>
+</div>
 <app-bid-modal></app-bid-modal>
   </div>
 </div>
