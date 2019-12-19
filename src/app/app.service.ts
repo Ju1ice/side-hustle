@@ -15,9 +15,13 @@ export class AppService {
 
 
 
-  api = 'http://localhost:8080/users';
-  taskapi = 'http://localhost:8080/tasks/task/';
-  bidapi = 'http://localhost:8080/bids/approve/';
+ //api = 'http://localhost:8080/users';
+  //taskapi = 'http://localhost:8080/tasks/task/';
+  //bidapi = 'http://localhost:8080/bids/approve/';
+
+    api = 'http://ec2-3-132-52-40.us-east-2.compute.amazonaws.com:8080/users';
+  taskapi = 'http://ec2-3-132-52-40.us-east-2.compute.amazonaws.com:8080/tasks/task/';
+  bidapi = 'http://ec2-3-132-52-40.us-east-2.compute.amazonaws.com:8080/bids/approve/';
   constructor(private http: HttpClient) { }
 
   login(tempUser: User): Observable <any> {

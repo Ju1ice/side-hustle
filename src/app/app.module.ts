@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BidModalComponent } from './bid-modal/bid-modal.component';
 import { CookieService } from 'ngx-cookie-service';
 import { DashboardTasksComponent } from './dashboard-tasks/dashboard-tasks.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DashboardTasksComponent } from './dashboard-tasks/dashboard-tasks.compo
     NavComponent,
     DashboardComponent,
     BidModalComponent,
-    DashboardTasksComponent
+    DashboardTasksComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
