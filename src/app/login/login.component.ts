@@ -33,9 +33,6 @@ export class LoginComponent implements OnInit {
       this.cookieService.set('useridfromlogin', rep.uid );
       console.log(rep);
 
-      // this.router.navigateByUrl('/nav', { skipLocationChange: true }).then(() => {
-      //   this.router.navigate(['/dashboard']);
-      //   });
       this.goToDashBoard();
       }
     });
@@ -44,7 +41,5 @@ export class LoginComponent implements OnInit {
   goToDashBoard() {
     this.router.navigate(['/dashboard']);
   }
-  reloadNavBar() {
-    this.router.navigate(['/nav']);
-  }
+
 }
