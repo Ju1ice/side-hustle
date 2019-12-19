@@ -115,7 +115,6 @@ approveBid(bid: Bid){
   console.log('Bid Approved:' + bid.bapproved);
   this.services.approveBid(bid).subscribe(resp => {
       console.log(resp);
-      this.getUserInfo();
       bid = new Bid();
     });
 }
