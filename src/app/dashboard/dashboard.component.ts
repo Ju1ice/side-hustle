@@ -83,16 +83,13 @@ export class DashboardComponent implements OnInit {
       this.getUserInfo();
     });
   }
-updateTask(taskid: number,  task: Task) {
-  console.log("This is task updating...." + this.task.ttitle);
-   /* this.services.updateTask(taskid, this.task).subscribe(resp => {
+updateTask(task: Task) {
+  console.log('This is task updating22222....' + JSON.stringify(task));
+  // console.log('This is task updating....' + JSON.stringify(this.user.tasks[1]));
+  this.services.updateTask(task).subscribe(resp => {
       console.log(resp);
       this.getUserInfo();
-      this.task = new Task();
+      task = new Task();
     });
-    */
-}
-toggle(taskid) {
-
 }
 }

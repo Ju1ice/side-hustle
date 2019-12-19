@@ -208,19 +208,20 @@
           <div class="taskdetail">
             <div class="tsdp"> <h6>Offered Price: </h6> <p>{{ task.tprice}} $</p> </div>
             <div class="tsdp2"> <h6>Duration in Hours: </h6> <p>{{ task.tduration}}</p></div>
+            <div class="tsdp2"> <h6>Address </h6> <p>{{ task.tstreet}}, {{task.tcity}}, {{ task.tstate}}</p></div>
           </div>
           </div>
                           <div class="actions">
        <button (click)="RemoveTask(task.tid)" class="btn btn-remove">Remove Job</button>
-       <button class="btn" (click)="task.formShow = !task.formShow" id="editShowBtn">{{buttonName}}</button>
+       <button class="btn editShowBtn" (click)="task.formshow=!task.formshow" *ngIf="!task.formshow">Update Task</button>
       </div>
 
 
 
 
-<div class="ditform" *ngIf="task.formShow">
+<div class="ditform" *ngIf="task.formshow">
 
-<form (ngSubmit)="updateTask()" class="updateForm" >
+<form (ngSubmit)="updateTask(task); task.formshow = false" class="updateForm" >
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="tasktitle">Title</label>
@@ -345,7 +346,7 @@
         </select>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="updateTask(task.tid)">Save Update</button>
+    <button type="submit" class="btn btn-primary">Save Update</button>
   </form>
 
 

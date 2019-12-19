@@ -37,8 +37,8 @@ export class AppService {
     return this.http.post(this.api + '/' + userid + '/task', task);
   }
 
-  updateTask(taskid: number, task: Task): Observable <any>{
-    return this.http.post(this.taskapi + '/' + taskid, task);
+  updateTask( task: Task): Observable <any> {
+    return this.http.post(this.taskapi + 'update/' + task.tid, task);
   }
 
   removeTask(taskid: number): Observable <any> {
