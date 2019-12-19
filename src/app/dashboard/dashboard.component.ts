@@ -7,6 +7,7 @@ import { BidService } from '../bid.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavComponent } from '../nav/nav.component';
 import { DashboardTasksComponent } from '../dashboard-tasks/dashboard-tasks.component';
+import { catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class DashboardComponent implements OnInit {
   userId: string;
   tempTask: Task = new Task();
   islogin: boolean;
+  error;
   constructor(private services: AppService, private cookieService: CookieService, private bidservice: BidService, private router: Router) { }
 
   ngOnInit() {
@@ -58,7 +60,14 @@ export class DashboardComponent implements OnInit {
   }
 
   CreateTask(userId: number, task: Task) {
-    this.services.createATask(this.userId, this.tempTask).subscribe(resp => {
+    this.services.createATask(this.userId, this.tempTask).pipe(
+      catchError((err, caught) => {
+        console.log('err', err);
+        this.error = err.error.errors;
+        console.log('this.error', this.error);
+        // console.log(caught);
+        return [];
+      })).subscribe(resp => {
       console.log(resp);
       this.getUserInfo();
       this.tempTask = new Task();

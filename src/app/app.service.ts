@@ -12,8 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class AppService {
 
-  // mockdata: Data = new Data ();
-  // tempTasks: Task[] = [];
+
 
   api = 'http://localhost:8080/users';
   taskapi = 'http://localhost:8080/tasks/task/';
@@ -28,10 +27,6 @@ export class AppService {
     // call api return
     return this.http.get(this.api + '/' + id );
   }
-
-  // getUserBySession(): Observable <any> {
-  //   return this.http.get(this.api + '/detail');
-  // }
 
   createATask(userid: string, task: Task): Observable <any> {
     return this.http.post(this.api + '/' + userid + '/task', task);

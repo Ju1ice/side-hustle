@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user';
 
-
 @Component({
   selector: 'app-dashboard-tasks',
   templateUrl: './dashboard-tasks.component.html',
@@ -13,5 +12,6 @@ export class DashboardTasksComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }

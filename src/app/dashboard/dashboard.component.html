@@ -1,6 +1,14 @@
+<app-nav></app-nav>
 <div class="container">
   <p>Hi, {{ user.ufn }}</p>
   <p>Please Let Other People Know You Need To Get Done!</p>
+  <div style="color: red;" *ngIf="error">
+    <ul *ngFor="let errormessage of error">
+       <li>{{errormessage}}</li>
+    </ul>
+  </div>
+
+
   <form (ngSubmit)="CreateTask()">
     <div class="form-row">
       <div class="form-group col-md-3">
