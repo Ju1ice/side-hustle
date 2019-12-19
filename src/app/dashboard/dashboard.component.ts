@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NavComponent } from '../nav/nav.component';
 import { DashboardTasksComponent } from '../dashboard-tasks/dashboard-tasks.component';
 import { catchError } from 'rxjs/operators';
+import { Bid } from 'src/bid';
 
 
 @Component({
@@ -107,6 +108,15 @@ export class DashboardComponent implements OnInit {
       this.getUserInfo();
       task = new Task();
       this.updateFormError = null;
+    });
+}
+
+approveBid(bid: Bid){
+  console.log('Bid Approved:' + bid.bapproved);
+  this.services.approveBid(bid).subscribe(resp => {
+      console.log(resp);
+      this.getUserInfo();
+      bid = new Bid();
     });
 }
 }
