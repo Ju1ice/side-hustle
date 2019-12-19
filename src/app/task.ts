@@ -13,5 +13,6 @@ export class Task {
   tduration: number;
   bids: Bid[];
   uid: number;
+  formshow = false;
   constructor() {}
 }

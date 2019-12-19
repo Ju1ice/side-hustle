@@ -1,10 +1,19 @@
 .task {
     background: lightgray;
     padding: 30px;
+    margin-bottom: 20px;
 }
 
-
+.taskdesc p, .taskdesc h6, .taskdetail p, .taskdetail h6{
+  display: inline-block;
+  margin: 5px;
+}
 h5.tasktitle {
     text-align: center;
     font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.task .btn{
+  margin: 20px 5px;
 }
